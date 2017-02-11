@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.8.3"></a>
+## [2.8.3](https://github.com/tomchentw/react-toastr/compare/v2.8.2...v2.8.3) (2017-02-11)
+
+
+### Bug Fixes
+
+* **ToastContainer:** replace refs string to callback pattern ([#2](https://github.com/tomchentw/react-toastr/issues/2)) ([93ac29f](https://github.com/tomchentw/react-toastr/commit/93ac29f))
+
+
+
 <a name="2.8.2"></a>
 ## [2.8.2](https://github.com/tomchentw/react-toastr/compare/v2.8.1...v2.8.2) (2016-11-09)
 
