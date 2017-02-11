@@ -18,13 +18,13 @@ export default class App extends Component {
   clearAlert = this.clearAlert.bind(this);
 
   addAlert() {
-    this.refs.container.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
+    this.toastContainer.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
       closeButton: true,
     });
   }
 
   clearAlert() {
-    this.refs.container.clear();
+    this.toastContainer.clear();
   }
 
   render() {
@@ -32,7 +32,7 @@ export default class App extends Component {
       <div>
         <ToastContainer
           toastMessageFactory={ToastMessageFactory}
-          ref="container"
+          ref={toastContainer => this.toastContainer = toastContainer}
           className="toast-top-right"
         />
 
