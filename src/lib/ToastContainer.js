@@ -50,6 +50,8 @@ export default class ToastContainer extends Component {
     messageList: [],
   };
 
+  toastRefs = {};
+
   _handle_toast_remove = this._handle_toast_remove.bind(this);
 
   error(message, title, optionsOverride) {
@@ -69,8 +71,8 @@ export default class ToastContainer extends Component {
   }
 
   clear() {
-    Object.keys(this.refs).forEach(key => {
-      this.refs[key].hideToast(false);
+    Object.keys(this.toastRefs).forEach(key => {
+      this.toastRefs[key].hideToast(false);
     });
   }
 
@@ -89,7 +91,7 @@ export default class ToastContainer extends Component {
         message,
         toastId,
         key,
-        ref: `toasts__${key}`,
+        ref: (toast) => {if (toast!== null) this.toastRefs[`toasts__${key}`] = toast;},
         handleOnClick: (e) => {
           if (`function` === typeof optionsOverride.handleOnClick) {
             optionsOverride.handleOnClick();
@@ -125,7 +127,7 @@ export default class ToastContainer extends Component {
 
   _handle_toast_remove(toastId) {
     if (this.props.preventDuplicates) {
-      this.state.previousMessage = ``;
+      this.setState({previousMessage:``});
     }
     const operationName = `${this.props.newestOnTop ? `reduceRight` : `reduce`}`;
     this.state.toasts[operationName]((found, toast, index) => {
